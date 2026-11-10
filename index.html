@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en" data-theme="alt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>disting-ex-sd · travelers guide for navigating the drum archive</title>
+<meta name="description" content="expert sleepers disting ex sd card database: 12 sd 6 triggers drum kits, 4,941 one-shots, searchable by kit, category, pack and genre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Roboto+Mono:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{--bg:#FFFFFF;--bg2:#F5F5F5;--fg:#0B0B0B;--fg2:#3F3F3F;--mu:#6D6E71;--ln:#DFDFDF;--ln2:#CBCBCB;--red:#ED2B44;--blue:#2495C2;--gr:#939598;
+--k:#ED2B43;--s:#FCAF17;--hc:#FFDE16;--ho:#70C057;--p1:#00AEEF;--p2:#B668AA;--cr:#D23C9E;--im:#8C8D90}
+html[data-theme="alt"]{--bg:#161616;--bg2:#1F1F1F;--fg:#F0F0F0;--fg2:#CFCFCF;--mu:#A3A4A7;--ln:#333333;--ln2:#3D3D3D;--red:#FF5C70;--blue:#4DB8E8;--gr:#8C8D90}
+@media (prefers-color-scheme: light){:root:not([data-theme="alt"]):not([data-theme="native"]){}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg)}
+body{font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--fg)}a:hover{color:#FCAF17}
+.mono{font-family:'Roboto Mono',ui-monospace,monospace}
+.wrap{max-width:1600px;margin:0 auto;padding:0 44px;position:relative}
+.crop{position:absolute;width:22px;height:22px;border-color:var(--fg);border-style:solid;border-width:0}
+.crop.tl{top:22px;left:14px;border-top-width:2px;border-left-width:2px}
+.crop.tr{top:22px;right:14px;border-top-width:2px;border-right-width:2px}
+
+/* slug row */
+.slugs{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;padding:30px 20px 0;font-family:'Roboto Mono',monospace;font-size:11px;line-height:1.6;color:var(--fg)}
+.slugs>div:last-child{text-align:right}
+.slugs b{font-weight:600}
+.dots{color:var(--mu)}
+.tm{font:inherit;color:inherit;background:none;border:0;padding:0 2px;margin:0;cursor:pointer;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.tm[aria-pressed="true"]{font-weight:700;text-decoration:none;color:#FCAF17}
+.tm:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+
+/* title */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 450px;gap:40px;align-items:end;padding:34px 20px 0}
+h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(56px,10vw,150px);line-height:.88;letter-spacing:-.045em;margin:0;color:var(--fg)}
+.sub{font-weight:700;font-size:clamp(22px,2.6vw,34px);line-height:1.08;letter-spacing:-.01em;margin:16px 0 0}
+.sub span{display:block}.sub .acc{color:#FCAF17}
+.bar{height:14px;background:var(--fg);margin:20px 0 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--fg)}
+.stat{padding:10px 10px 8px;border-left:2px solid var(--fg)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font-weight:900;font-size:30px;line-height:1;letter-spacing:-.02em}
+.stat span{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--mu)}
+.legendline{font-family:'Roboto Mono',monospace;font-size:10.5px;color:var(--mu);margin-top:10px;line-height:1.7}
+.legendline .b{color:var(--fg)}
+
+.stripes{display:flex;flex-direction:column;gap:3px;margin:22px -44px 0}
+.stripes div{height:3px}
+.strip{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Roboto Mono',monospace;font-size:10.5px;color:var(--mu);padding:14px 20px 10px;border-bottom:1px solid var(--ln2);margin:0 0 26px}
+
+/* sections */
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:30px;padding:0 20px}
+.sec{min-width:0}
+.sh{display:flex;align-items:stretch;border-top:4px solid var(--fg);margin:0 0 8px}
+.sn{font-family:'Roboto Mono',monospace;font-weight:600;font-size:12.5px;padding:6px 8px 5px;line-height:1.2;min-width:28px;text-align:center}
+.st{margin:0;font-weight:900;font-size:22px;line-height:1;letter-spacing:-.015em;padding:6px 10px 3px;flex:1;min-width:0}
+.sc{font-family:'Roboto Mono',monospace;font-size:10px;font-weight:500;color:var(--mu);align-self:center;white-space:nowrap}
+.r{display:grid;grid-template-columns:170px minmax(0,1fr);column-gap:14px;padding:6px 0;border-top:1px solid var(--ln);align-items:baseline}
+.r:first-of-type{border-top:0}
+.kc{font-family:'Roboto Mono',monospace;font-weight:600;font-size:11.5px;color:var(--fg)}
+.kc .h{color:var(--red)}
+.a{font-size:13px;line-height:1.4;color:var(--fg2)}
+.a b{color:var(--fg);font-weight:700}
+.note{font-family:'Roboto Mono',monospace;font-size:10.5px;line-height:1.55;color:var(--mu);margin:8px 0 0}
+
+/* kits */
+.kits{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.kit{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:8px;padding:0 0 10px;border-top:3px solid var(--kc);background:transparent;min-width:0}
+.kit:hover .kn,.kit[aria-pressed="true"] .kn{color:var(--kc)}
+.kit[aria-pressed="true"]{background:var(--bg2)}
+.kit:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.kh{display:flex;gap:8px;align-items:stretch}
+.kno{font-family:'Roboto Mono',monospace;font-weight:600;font-size:11.5px;background:var(--kc);color:#101010;padding:5px 6px 4px;min-width:26px;text-align:center}
+.kn{font-weight:900;font-size:19px;line-height:1.05;letter-spacing:-.015em;padding-top:4px;word-break:break-word}
+.km{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--mu);display:flex;justify-content:space-between;gap:8px;padding:0 4px}
+.stack{display:flex;height:8px;margin:0 4px;background:var(--ln)}
+.stack i{display:block;height:100%}
+.ranges{display:grid;grid-template-columns:auto 1fr auto;column-gap:6px;font-family:'Roboto Mono',monospace;font-size:10px;line-height:1.55;color:var(--fg2);padding:0 4px}
+.ranges .d{width:7px;height:7px;align-self:center;display:inline-block}
+.ranges .n{text-align:right;color:var(--fg);font-weight:600}
+.ranges .z{color:var(--mu)}
+
+/* category map */
+.cat{display:grid;grid-template-columns:12px 112px minmax(0,1fr) 44px;column-gap:10px;padding:6px 0;border-top:1px solid var(--ln);align-items:baseline;font-size:13px;color:var(--fg2)}
+.cat:first-child{border-top:0}
+.cat i{width:10px;height:10px;display:inline-block;align-self:center}
+.cat .kc{font-size:11.5px}
+.cat .ct{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--fg);text-align:right;font-weight:600}
+
+/* database */
+.ctl{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:0 0 10px}
+.search{flex:1 1 320px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--fg);padding:4px 0}
+.search label{font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;white-space:nowrap}
+.search input{flex:1;min-width:0;background:transparent;border:0;color:var(--fg);font-family:'Roboto Mono',monospace;font-size:14px;padding:4px 0;outline:none}
+.search input::placeholder{color:var(--mu)}
+.sel{display:flex;align-items:center;gap:6px;font-family:'Roboto Mono',monospace;font-size:11px}
+.sel select{background:var(--bg);color:var(--fg);border:1px solid var(--ln2);font-family:'Roboto Mono',monospace;font-size:11px;padding:5px 6px;max-width:220px}
+.chips{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:'Roboto Mono',monospace;font-size:11px;margin:0 0 12px;align-items:center}
+.chips .lb{font-weight:600}
+.chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:5px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;color:var(--fg2)}
+.chip i{width:8px;height:8px;display:inline-block}
+.chip[aria-pressed="true"]{color:#FCAF17;font-weight:700;text-decoration:none}
+.chip:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.count{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:'Roboto Mono',monospace;font-size:10.5px;color:var(--mu);border-top:4px solid var(--fg);padding:6px 0}
+.count b{color:var(--fg)}
+.clear{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:2px;color:var(--fg)}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;color:var(--mu);text-align:left;padding:6px 8px 6px 0;border-bottom:1px solid var(--ln2);white-space:nowrap}
+th button{all:unset;cursor:pointer}
+th button:focus-visible{outline:2px solid var(--fg)}
+th button[data-dir]::after{content:attr(data-dir);margin-left:4px;color:#FCAF17}
+td{font-size:12.5px;color:var(--fg2);padding:5px 8px 5px 0;border-bottom:1px solid var(--ln);vertical-align:baseline;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+td.m{font-family:'Roboto Mono',monospace;font-size:11px}
+td.num{font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;color:var(--fg)}
+td .ctag{display:inline-flex;align-items:center;gap:5px;font-family:'Roboto Mono',monospace;font-size:10.5px;color:var(--fg)}
+td .ctag i{width:8px;height:8px;display:inline-block}
+tr:hover td{background:var(--bg2)}
+.c-folder{width:150px}.c-sample{width:58px}.c-cat{width:96px}.c-pack{width:24%}.c-sec{width:56px}.c-genre{width:96px}
+.more{display:flex;justify-content:center;gap:16px;padding:14px 0;font-family:'Roboto Mono',monospace;font-size:11px}
+.more button{all:unset;cursor:pointer;border:2px solid var(--fg);padding:6px 14px;font-weight:600}
+.more button:hover{background:var(--fg);color:var(--bg)}
+.empty{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--mu);padding:24px 0}
+
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Roboto Mono',monospace;font-size:10px;line-height:1.6;color:var(--mu);border-top:1px solid var(--ln2);margin:36px 20px 0;padding:12px 0 34px}
+footer div:last-child{text-align:right}
+
+.s-kits{grid-column:span 12}
+.s-cats{grid-column:span 4}.s-load{grid-column:span 8}
+.s-db{grid-column:span 12}
+.loadgrid{display:grid;grid-template-columns:1fr 1fr;column-gap:30px}
+
+@media (max-width:1100px){.hero{grid-template-columns:1fr}.s-cats,.s-load{grid-column:span 12}}
+@media (max-width:899px){
+.wrap{padding:0 16px}.crop{display:none}
+.slugs{grid-template-columns:1fr;padding:18px 0 0;gap:6px}.slugs>div:last-child,.slugs>div:nth-child(2){text-align:left}
+.hero{padding:22px 0 0;gap:22px}.stripes{margin:20px -16px 0}.strip{padding:12px 0 8px}.grid{padding:0;gap:28px}
+.loadgrid{grid-template-columns:1fr}.r{grid-template-columns:minmax(0,40%) minmax(0,1fr)}
+.stat b{font-size:24px}
+footer{margin:28px 0 0}footer div:last-child{text-align:left}
+.sh .sc{display:none}
+table,tbody{display:block}thead,colgroup{display:none}
+tr{display:grid;grid-template-columns:44px 92px minmax(0,1fr);grid-template-areas:'n c f' 'x x x' 'p p p';column-gap:8px;padding:7px 0;border-bottom:1px solid var(--ln)}
+td{border:0;padding:0;display:block}td.num{grid-area:n}td.ct{grid-area:c}td.fo{grid-area:f;text-align:right;color:var(--mu)}td.fn{grid-area:x}td.pack{grid-area:p}
+td.fn{white-space:normal;word-break:break-all;margin-top:3px;color:var(--fg2)}
+td.pack{font-size:11.5px;color:var(--mu);white-space:normal}
+td.genre,td.sec{display:none}
+tr:hover td{background:none}
+}
+@media print{.ctl,.chips,.more,.tmline{display:none!important}html,body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="crop tl" aria-hidden="true"></span><span class="crop tr" aria-hidden="true"></span>
+
+<div class="slugs">
+  <div>
+    <div><b>disting-ex-sd</b> <span class="dots">...............</span> 00.12_01</div>
+    <div>algorithm <span class="dots">..................</span> 4 · sd 6 triggers</div>
+  </div>
+  <div class="tmline">
+    <div>mode <span class="dots">.......................</span> <button type="button" class="tm" data-t="native" aria-pressed="false">light</button>/<button type="button" class="tm" data-t="alt" aria-pressed="true">dark</button></div>
+    <div>data <span class="dots">.......................</span> <a href="data.json">data.json</a></div>
+  </div>
+  <div>
+    <div>source <span class="dots">..........</span> <a href="https://www.expert-sleepers.co.uk/distingEX.html">disting ex manual 1.5</a></div>
+    <div>rev <span class="dots">...........................</span> <span id="rev">2026.11</span></div>
+  </div>
+</div>
+
+<div class="hero">
+  <div>
+    <h1>disting ex</h1>
+    <p class="sub"><span>_travelers guide</span><span class="acc">_for navigating the drum archive</span></p>
+    <div class="bar" aria-hidden="true"></div>
+  </div>
+  <div>
+    <div class="stats">
+      <div class="stat"><b id="st-kits">12</b><span>kits</span></div>
+      <div class="stat"><b id="st-n">4,941</b><span>one-shots</span></div>
+      <div class="stat"><b id="st-p">448</b><span>source packs</span></div>
+      <div class="stat"><b>8</b><span>categories</span></div>
+    </div>
+    <div class="legendline"><span class="b">[ folder ]</span> picks the kit · <span class="b">[ sample 1–6 ]</span> picks a hit per voice · numbers below = sample parameter value</div>
+  </div>
+</div>
+
+<div class="stripes" aria-hidden="true"><div style="background:#70C057"></div><div style="background:#FFDE16"></div><div style="background:#FCAF17"></div><div style="background:#ED2B43"></div><div style="background:#00AEEF"></div><div style="background:#B668AA"></div><div style="background:var(--mu)"></div><div style="background:var(--fg)"></div><div style="background:#5A5A5A"></div></div>
+
+<div class="strip"><span>one flat folder per kit · categories grouped by file-name prefix</span><span>every file · .wav · 44.1 khz · 16-bit · one-shot</span><span>tap a kit to filter the database</span></div>
+
+<main class="grid">
+
+<section class="sec s-kits" aria-labelledby="h-kits">
+  <div class="sh"><span class="sn" style="background:#FCAF17;color:#101010">01</span><h2 class="st" id="h-kits">kits</h2><span class="sc">dsx_01 · top-level folders on the card</span></div>
+  <div class="kits" id="kits"></div>
+</section>
+
+<section class="sec s-cats" aria-labelledby="h-cats">
+  <div class="sh"><span class="sn" style="background:#ED2B43;color:#101010">02</span><h2 class="st" id="h-cats">category map</h2><span class="sc">dsx_02</span></div>
+  <div id="cats"></div>
+  <p class="note">the prefix keeps each category contiguous, so sweeping a sample parameter stays inside one sound family. claps sit in perc_1; toms, wood, shakers and the rest in perc_2.</p>
+</section>
+
+<section class="sec s-load" aria-labelledby="h-load">
+  <div class="sh"><span class="sn" style="background:#00AEEF;color:#101010">03</span><h2 class="st" id="h-load">on the module</h2><span class="sc">dsx_03 · manual 1.5 p.40–42, 68</span></div>
+  <div class="loadgrid">
+    <div>
+      <div class="r"><span class="kc">[ folder ]</span><span class="a"><b>0–999.</b> chooses the folder the six voices load from. the display shows the folder name while it's current.</span></div>
+      <div class="r"><span class="kc">[ sample 1–6 ]</span><span class="a"><b>−1–999.</b> the file for each voice; <b>−1</b> disables the voice. use the sample # column below.</span></div>
+      <div class="r"><span class="kc">[ in 1–6 ]</span><span class="a">gate in <b>n</b> triggers voice <b>n</b>. velocity sensitive: <b>5v = full velocity</b>.</span></div>
+      <div class="r"><span class="kc">[ output 1–6 ]</span><span class="a"><b>1–4</b> single out · <b>5</b> = outs 1/2 stereo · <b>6</b> = outs 3/4 stereo.</span></div>
+      <div class="r"><span class="kc">[ choke 1–6 ]</span><span class="a">group <b>1–3</b>: a trigger cuts the other voices in its group. put hat_cl + hat_op together.</span></div>
+    </div>
+    <div>
+      <div class="r"><span class="kc">midi</span><span class="a">notes <b>48–53</b> (c3–f3) trigger voices 1–6. can be disabled in the algorithm menu.</span></div>
+      <div class="r"><span class="kc">[ env time ]</span><span class="a"><b>100</b> = infinite (plays to the end). lower values add a release, handy for long crashes and impacts.</span></div>
+      <div class="r"><span class="kc">wav defaults</span><span class="a">one-shot, not looping. a playlist can override.</span></div>
+      <div class="r"><span class="kc">naming tags</span><span class="a"><b>_V1</b> velocity layers, <b>_RR1</b> round robins, <b>_C3</b> note names. names here use hyphens only, so nothing groups by accident.</span></div>
+      <div class="r"><span class="kc">es-5</span><span class="a">first 6 outs fire an end-of-sample trigger per voice.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec s-db" aria-labelledby="h-db">
+  <div class="sh"><span class="sn" style="background:#B668AA;color:#FFFFFF">04</span><h2 class="st" id="h-db">sample database</h2><span class="sc">dsx_04 · search · filter · sort</span></div>
+  <div class="ctl">
+    <div class="search"><label for="q">find ›</label><input id="q" type="search" placeholder="kick, rim, sophie, vinyl, 808…" autocomplete="off" spellcheck="false"></div>
+    <div class="sel"><label for="fk">kit</label><select id="fk"><option value="">all kits</option></select></div>
+    <div class="sel"><label for="fp">pack</label><select id="fp"><option value="">all packs</option></select></div>
+  </div>
+  <div class="chips" id="cchips"><span class="lb">category ›</span></div>
+  <div class="count"><span id="cnt">loading…</span><button class="clear" id="reset" type="button">reset filters</button></div>
+  <table>
+    <colgroup><col class="c-folder"><col class="c-sample"><col class="c-cat"><col class="c-file"><col class="c-pack"><col class="c-genre"><col class="c-sec"></colgroup>
+    <thead><tr>
+      <th scope="col"><button data-k="folder">folder</button></th>
+      <th scope="col"><button data-k="sample">sample #</button></th>
+      <th scope="col"><button data-k="cat">category</button></th>
+      <th scope="col"><button data-k="file">file</button></th>
+      <th scope="col" class="pack"><button data-k="pack">source pack</button></th>
+      <th scope="col" class="genre"><button data-k="genre">genre</button></th>
+      <th scope="col" class="sec"><button data-k="sec">sec</button></th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+  </table>
+  <div class="empty" id="empty" hidden>nothing matches. try fewer filters.</div>
+  <div class="more" id="more" hidden><button type="button" id="moreb">show 200 more</button><button type="button" id="allb">show all</button></div>
+</section>
+
+</main>
+
+<footer>
+  <div>design homage to the <a href="https://www.marvel.com/comics/guides/1556/house-of-xpowers-of-x">house of x / powers of x</a> data pages, designed by tom muller with jonathan hickman<br>samples from splice packs, curated for personal use · not affiliated with expert sleepers, splice or marvel</div>
+  <div>conceived by <a href="https://github.com/mellotom">mellotom</a> · disting-ex-sd ... 00.12_01<br>created with claude</div>
+</footer>
+</div>
+
+<script>
+(function(){
+var root=document.documentElement;
+function setTheme(t){root.setAttribute('data-theme',t);document.querySelectorAll('.tm[data-t]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.t===t));});try{localStorage.setItem('dsx-theme',t);}catch(e){}}
+var saved=null;try{saved=localStorage.getItem('dsx-theme');}catch(e){}
+setTheme(saved||'alt');
+document.querySelectorAll('.tm[data-t]').forEach(function(b){b.addEventListener('click',function(){setTheme(b.dataset.t);});});
+
+var CC=['var(--k)','var(--s)','var(--hc)','var(--ho)','var(--p1)','var(--p2)','var(--cr)','var(--im)'];
+var CDESC=['kicks and 808s','snares and rimshots','closed hats','open hats','claps, snaps','toms, wood, shakers, bells, foley','crash, ride, splash, cymbals','noise bursts, chimes, whooshes, impacts (same set in every kit)'];
+var KC=['#70C057','#FFDE16','#FCAF17','#ED2B43','#00AEEF','#B668AA','#D23C9E','#70C057','#FFDE16','#FCAF17','#ED2B43','#00AEEF'];
+var GDESC={bass:'dubstep · riddim · heavy bass',dnb:'drum & bass · jungle',experimental:'alt electronic · hyperpop · leftfield',hiphop:'boom bap · soul · vintage',house:'house · tech house · disco · techno',lofi:'lo-fi · chillhop · dusty',misc:'live · world · unsorted',rnb:'r&b · neo soul · future soul',trap:'trap · drill · 808',ukg:'uk garage · 2-step · speed garage'};
+var D,ROWS=[],state={q:'',kit:'',pack:'',cats:new Set(),sort:null,dir:1,shown:200};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function catName(i){return D.cats[i].replace(/^\d_/,'');}
+
+fetch('data.json').then(function(r){return r.json();}).then(function(d){D=d;init();}).catch(function(){document.getElementById('cnt').textContent='could not load data.json';});
+
+function init(){
+  document.getElementById('rev').textContent=D.v;
+  ROWS=D.rows.map(function(r){return{f:r[0],n:r[1],c:r[2],file:r[3],p:r[4],src:r[5],g:r[6],sec:r[7],hay:(r[3]+' '+D.packs[r[4]]+' '+r[5]+' '+D.genres[r[6]]+' '+D.folders[r[0]]).toLowerCase()};});
+  document.getElementById('st-n').textContent=ROWS.length.toLocaleString();
+  document.getElementById('st-p').textContent=D.packs.length;
+  document.getElementById('st-kits').textContent=D.folders.length;
+  // kits
+  var kh='';
+  D.folders.forEach(function(f,i){
+    var rs=ROWS.filter(function(r){return r.f===i;}),tot=rs.length,cnt=D.cats.map(function(){return 0;}),lo=D.cats.map(function(){return null;}),hi=D.cats.map(function(){return null;});
+    rs.forEach(function(r){cnt[r.c]++;if(lo[r.c]===null||r.n<lo[r.c])lo[r.c]=r.n;if(hi[r.c]===null||r.n>hi[r.c])hi[r.c]=r.n;});
+    var g=f.replace(/^drums_/,'').replace(/_\d+$/,''),vol=(f.match(/_(\d+)$/)||[])[1];
+    var stack=cnt.map(function(c,j){return c?'<i style="width:'+(c/tot*100)+'%;background:'+CC[j]+'" title="'+catName(j)+' '+c+'"></i>':'';}).join('');
+    var rg=D.cats.map(function(c,j){return '<span class="d" style="background:'+CC[j]+'"></span><span'+(cnt[j]?'':' class="z"')+'>'+catName(j)+'</span><span class="n'+(cnt[j]?'':' z')+'">'+(cnt[j]?lo[j]+'–'+hi[j]:'—')+'</span>';}).join('');
+    kh+='<button type="button" class="kit" data-i="'+i+'" aria-pressed="false" style="--kc:'+KC[i%KC.length]+'"><span class="kh"><span class="kno">'+String(i+1).padStart(2,'0')+'</span><span class="kn">'+esc(g)+(vol?' '+vol:'')+'</span></span><span class="km"><span>'+esc(f)+'/</span><span>'+tot+' files</span></span><span class="km"><span>'+esc(GDESC[g]||g)+'</span></span><span class="stack" aria-hidden="true">'+stack+'</span><span class="ranges">'+rg+'</span></button>';
+  });
+  var K=document.getElementById('kits');K.innerHTML=kh;
+  K.addEventListener('click',function(e){var b=e.target.closest('.kit');if(!b)return;var v=b.dataset.i;state.kit=(state.kit===v)?'':v;document.getElementById('fk').value=state.kit;state.shown=200;render();if(state.kit)document.getElementById('h-db').scrollIntoView({behavior:'smooth',block:'start'});});
+  // category map
+  var tc=D.cats.map(function(){return 0;});ROWS.forEach(function(r){tc[r.c]++;});
+  document.getElementById('cats').innerHTML=D.cats.map(function(c,j){return '<div class="cat"><i style="background:'+CC[j]+'"></i><span class="kc">'+c+'</span><span>'+CDESC[j]+'</span><span class="ct">'+tc[j]+'</span></div>';}).join('');
+  // selects
+  var fk=document.getElementById('fk');D.folders.forEach(function(f,i){fk.insertAdjacentHTML('beforeend','<option value="'+i+'">'+esc(f)+'</option>');});
+  var pc={};ROWS.forEach(function(r){pc[r.p]=(pc[r.p]||0)+1;});
+  var fp=document.getElementById('fp');D.packs.forEach(function(p,i){fp.insertAdjacentHTML('beforeend','<option value="'+i+'">'+esc(p)+' ('+pc[i]+')</option>');});
+  var ch=document.getElementById('cchips');D.cats.forEach(function(c,j){ch.insertAdjacentHTML('beforeend','<button type="button" class="chip" data-c="'+j+'" aria-pressed="false"><i style="background:'+CC[j]+'"></i>'+catName(j)+'</button>');});
+  ch.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;var j=+b.dataset.c;state.cats.has(j)?state.cats.delete(j):state.cats.add(j);state.shown=200;render();});
+  var qt;document.getElementById('q').addEventListener('input',function(e){clearTimeout(qt);qt=setTimeout(function(){state.q=e.target.value.trim().toLowerCase();state.shown=200;render();},120);});
+  fk.addEventListener('change',function(){state.kit=fk.value;state.shown=200;render();});
+  fp.addEventListener('change',function(){state.pack=fp.value;state.shown=200;render();});
+  document.querySelectorAll('th button').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k;if(state.sort===k)state.dir=-state.dir;else{state.sort=k;state.dir=1;}render();});});
+  document.getElementById('reset').addEventListener('click',function(){state={q:'',kit:'',pack:'',cats:new Set(),sort:null,dir:1,shown:200};document.getElementById('q').value='';fk.value='';fp.value='';render();});
+  document.getElementById('moreb').addEventListener('click',function(){state.shown+=200;render();});
+  document.getElementById('allb').addEventListener('click',function(){state.shown=1e9;render();});
+  render();
+}
+var KEY={folder:function(r){return r.f*10000+r.n;},sample:function(r){return r.n;},cat:function(r){return r.c*100000+r.f*10000+r.n;},file:function(r){return r.file;},pack:function(r){return D.packs[r.p].toLowerCase();},genre:function(r){return D.genres[r.g];},sec:function(r){return r.sec;}};
+function render(){
+  var terms=state.q?state.q.split(/\s+/):[];
+  var out=ROWS.filter(function(r){
+    if(state.kit!==''&&r.f!==+state.kit)return false;
+    if(state.pack!==''&&r.p!==+state.pack)return false;
+    if(state.cats.size&&!state.cats.has(r.c))return false;
+    for(var i=0;i<terms.length;i++)if(r.hay.indexOf(terms[i])<0)return false;
+    return true;});
+  if(state.sort){var kf=KEY[state.sort],d=state.dir;out.sort(function(a,b){var x=kf(a),y=kf(b);return x<y?-d:x>y?d:(a.f-b.f)||(a.n-b.n);});}
+  document.querySelectorAll('th button').forEach(function(b){if(b.dataset.k===state.sort)b.setAttribute('data-dir',state.dir>0?'↑':'↓');else b.removeAttribute('data-dir');});
+  document.querySelectorAll('.kit').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.i===state.kit));});
+  document.querySelectorAll('.chip').forEach(function(b){b.setAttribute('aria-pressed',String(state.cats.has(+b.dataset.c)));});
+  var sl=out.slice(0,state.shown);
+  document.getElementById('tb').innerHTML=sl.map(function(r){
+    return '<tr><td class="m fo">'+esc(D.folders[r.f])+'</td><td class="num">'+r.n+'</td><td class="ct"><span class="ctag"><i style="background:'+CC[r.c]+'"></i>'+catName(r.c)+'</span></td><td class="m fn" title="'+esc(r.file)+' · from '+esc(r.src)+'">'+esc(r.file)+'</td><td class="pack">'+esc(D.packs[r.p])+'</td><td class="m genre">'+esc(D.genres[r.g])+'</td><td class="m sec">'+r.sec.toFixed(2)+'</td></tr>';}).join('');
+  var active=(state.q||state.kit!==''||state.pack!==''||state.cats.size);
+  document.getElementById('cnt').innerHTML='<b>'+out.length.toLocaleString()+'</b> of '+ROWS.length.toLocaleString()+' one-shots'+(active?' match':'')+(out.length>sl.length?' · showing '+sl.length:'');
+  document.getElementById('empty').hidden=out.length>0;
+  document.getElementById('more').hidden=out.length<=sl.length;
+}
+})();
+</script>
+</body>
+</html>
